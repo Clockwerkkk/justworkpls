@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebApplication1.Models.Person>
+
+@{
+    ViewBag.Title = "Все пользователи";
+}
+
+<a asp-action="Create">Добавить пользователя</a>
+
+<h1>Список пользователей</h1>
+<table class="table">
+    <tr>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.NameSort">
+                Имя
+            </a>
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewBag.AgeSort">
+                Возраст
+            </a>
+        </th>
+    </tr>
+    @foreach (Person u in Model)
+    {
+        <tr><td>@u.Name</td><td>@u.Age</td></tr>
+    }
+</table>
